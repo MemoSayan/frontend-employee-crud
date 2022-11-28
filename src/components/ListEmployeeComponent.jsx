@@ -49,7 +49,6 @@ class ListEmployeeComponent extends Component {
                             <th>Email</th>
                             <th>JobTitle</th>
                             <th>Phone</th>
-                            <th>Image</th>
                             <th> Actions</th>
                         </tr>
                         </thead>
@@ -62,7 +61,6 @@ class ListEmployeeComponent extends Component {
                                         <td>{employee.email}</td>
                                         <td>{employee.jobTitle}</td>
                                         <td>{employee.phone}</td>
-                                        <td>{employee.imageUrl}</td>
                                         <td>
                                             <button onClick={() => this.editEmployee(employee.id)}
                                                     className="btn btn-info">Update

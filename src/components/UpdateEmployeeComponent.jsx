@@ -10,14 +10,12 @@ class UpdateEmployeeComponent extends Component {
             name: '',
             email: '',
             jobTitle: '',
-            phone: '',
-            imageUrl: ''
+            phone: ''
         }
         this.changeNameHandler = this.changeNameHandler.bind(this);
         this.changeEmailHandler = this.changeEmailHandler.bind(this);
         this.changeJobTitleHandler = this.changeJobTitleHandler.bind(this);
         this.changePhoneHandler = this.changePhoneHandler.bind(this);
-        this.changeImageUrlHandler = this.changeImageUrlHandler.bind(this);
         this.updateEmployee = this.updateEmployee.bind(this);
     }
 
@@ -30,7 +28,6 @@ class UpdateEmployeeComponent extends Component {
                email: employee.email,
                jobTitle: employee.jobTitle,
                phone: employee.phone,
-               imageUrl: employee.imageUrl
            });
         });
     }
@@ -42,7 +39,6 @@ class UpdateEmployeeComponent extends Component {
             email: this.state.email,
             jobTitle: this.state.jobTitle,
             phone: this.state.phone,
-            imageUrl: this.state.imageUrl
         };
         console.log('employee : ' + JSON.stringify(employee, this.state.id));
         EmployeeService.updateEmployee(employee, this.state.id).then( rest => {
@@ -62,9 +58,6 @@ class UpdateEmployeeComponent extends Component {
     }
     changePhoneHandler = (event) => {
         this.setState({phone: event.target.value});
-    }
-    changeImageUrlHandler = (event) => {
-        this.setState({imageUrl: event.target.value});
     }
 
     cancel(){
@@ -100,18 +93,10 @@ class UpdateEmployeeComponent extends Component {
                                 <input placeholder="Phone" name="phone" className="form-control"
                                        value={this.state.phone} onChange={this.changePhoneHandler}/>
                             </div>
-                            <div className="form-group">
-                                <label> Image  </label>
-                                <input placeholder="Image Url" name="image" className="form-control"
-                                       value={this.state.imageUrl} onChange={this.changeImageUrlHandler}/>
-                            </div>
-
-
                             <button className="btn btn-success" onClick={this.updateEmployee}>Save</button>
                             <button className="btn btn-danger" onClick={this.cancel.bind(this)}
                                     style={{marginLeft: "10px"}}>Cancel
                             </button>
-
                         </form>
                     </div>
                 </div>

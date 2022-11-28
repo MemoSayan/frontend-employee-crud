@@ -27,14 +27,12 @@ class CreateEmployeeComponent extends Component {
             name: '',
             email: '',
             jobTitle: '',
-            phone: '',
-            imageUrl: ''
+            phone: ''
         }
         this.changeNameHandler = this.changeNameHandler.bind(this);
         this.changeEmailHandler = this.changeEmailHandler.bind(this);
         this.changeJobTitleHandler = this.changeJobTitleHandler.bind(this);
         this.changePhoneHandler = this.changePhoneHandler.bind(this);
-        this.changeImageUrlHandler = this.changeImageUrlHandler.bind(this);
         this.saveOrUpdateEmployee = this.saveOrUpdateEmployee.bind(this);
     }
 
@@ -44,8 +42,7 @@ class CreateEmployeeComponent extends Component {
             name: this.state.name,
             email: this.state.email,
             jobTitle: this.state.jobTitle,
-            phone: this.state.phone,
-            imageUrl: this.state.imageUrl
+            phone: this.state.phone
         };
         //console.log('employee : ' + JSON.stringify(employee));
         if (this.state.name === '' || this.state.email === '') {
@@ -69,9 +66,6 @@ class CreateEmployeeComponent extends Component {
     }
     changePhoneHandler = (event) => {
         this.setState({phone: event.target.value});
-    }
-    changeImageUrlHandler = (event) => {
-        this.setState({imageUrl: event.target.value});
     }
 
     cancel() {
@@ -110,13 +104,6 @@ class CreateEmployeeComponent extends Component {
                                        type="number"
                                        value={this.state.phone} onChange={this.changePhoneHandler}/>
                             </div>
-                            <div className="form-group">
-                                <label> Image </label>
-                                <input placeholder="Image Url" name="image" className="form-control" type="text"
-                                       value={this.state.imageUrl} onChange={this.changeImageUrlHandler}/>
-                            </div>
-
-
                             <button className="btn btn-success" onClick={this.saveOrUpdateEmployee}>Save</button>
                             <button className="btn btn-danger" onClick={this.cancel.bind(this)}
                                     style={{marginLeft: "10px"}}>Cancel
@@ -125,7 +112,6 @@ class CreateEmployeeComponent extends Component {
                     </div>
                 </div>
             </div>
-
         );
     }
 }
